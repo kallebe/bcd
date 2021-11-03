@@ -19,7 +19,7 @@ segment .text
 global soma_bcd, subtracao_bcd
 
 soma_bcd:
-  enter 0, 0            ; setup routine
+  enter 0, 0              ; setup routine
   pusha
 
   mov   eax, prompt1
@@ -40,12 +40,12 @@ soma_bcd:
   mov   [res], eax        ; res = soma
 
   popa
-  mov   eax, [res]            ; retorna para o programa C com o resultado
+  mov   eax, [res]        ; retorna para o programa C com o resultado
   leave
   ret
 
 subtracao_bcd:
-  enter 0, 0            ; setup routine
+  enter 0, 0              ; setup routine
   pusha
 
   mov   eax, prompt1
@@ -66,6 +66,6 @@ subtracao_bcd:
   mov   [res], eax        ; res = subtracao
 
   popa
-  mov   eax, [res]            ; retorna para o programa C com o resultado
+  mov   eax, [res]         ; retorna para o programa C com o resultado
   leave
   ret
