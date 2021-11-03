@@ -1,10 +1,23 @@
-#include "cdecl.h"
+// #include "cdecl.h"
+#include <stdio.h>
 
-int PRE_CDECL asm_main(void) POST_CDECL;
+int soma_bcd(void) __attribute__((cdecl));
+int subtracao_bcd(void) __attribute__((cdecl));
 
 int main() {
-  int ret_status;
-  ret_status = asm_main();
+  int opc = 0;
+  int resultado = 0;
 
-  return ret_status;
+  while (opc != 1 && opc != 2) {
+    printf("Escolha uma opcao:\n\t1- Soma BCD\n\t2- Subtracao\n\nSua escolha: ");
+    scanf("%d", &opc);
+    printf("\n");
+  }
+
+  if (opc == 1)
+    resultado = soma_bcd();
+  else
+    resultado = subtracao_bcd();
+
+  return 0;
 }

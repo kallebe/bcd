@@ -15,9 +15,9 @@ input2 resd 1
 
 segment .text
 
-global asm_main
+global soma_bcd, subtracao_bcd
 
-asm_main:
+soma_bcd:
   enter 0, 0            ; setup routine
   pusha
 
@@ -43,6 +43,27 @@ asm_main:
   mov   eax, ebx
   call  print_int
   call  print_nl
+
+  popa
+  mov   eax, 0            ; retorna para o programa C com code 0
+  leave
+  ret
+
+subtracao_bcd:
+  enter 0, 0            ; setup routine
+  pusha
+
+  mov   eax, prompt1
+  call  print_string
+
+  call  read_int          ; lê o primeiro inteiro
+  mov   [input1], eax     ; e armazena em input1
+
+  mov   eax, prompt2
+  call  print_string
+
+  call  read_int          ; lê o segundo inteiro
+  mov   [input2], eax     ; e armazena em input2
 
   mov   eax, [input1]     ; realiza a
   sub   eax, [input2]     ; subtracao de input1 e input2
