@@ -14,10 +14,14 @@ int main() {
     printf("\n");
   }
 
-  if (opc == 1)
+  if (opc == 1) {
     resultado = soma_bcd();
-  else
+    printf("A soma é: %d\n", resultado);
+  }
+  else {
     resultado = subtracao_bcd();
+    printf("A subtração é: %d\n", resultado);
+  }
 
   return 0;
 }

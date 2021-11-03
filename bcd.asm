@@ -12,6 +12,7 @@ segment .bss
 
 input1 resd 1
 input2 resd 1
+res    resd 1
 
 segment .text
 
@@ -36,16 +37,10 @@ soma_bcd:
   mov   eax, [input1]     ; realiza a
   add   eax, [input2]     ; soma de input1 e input2
 
-  mov   ebx, eax
-
-  mov   eax, outmsg1      ; printa a soma
-  call  print_string
-  mov   eax, ebx
-  call  print_int
-  call  print_nl
+  mov   [res], eax        ; res = soma
 
   popa
-  mov   eax, 0            ; retorna para o programa C com code 0
+  mov   eax, [res]            ; retorna para o programa C com o resultado
   leave
   ret
 
@@ -68,15 +63,9 @@ subtracao_bcd:
   mov   eax, [input1]     ; realiza a
   sub   eax, [input2]     ; subtracao de input1 e input2
 
-  mov   ebx, eax
-
-  mov   eax, outmsg2      ; printa a subtração
-  call  print_string
-  mov   eax, ebx
-  call  print_int
-  call  print_nl
+  mov   [res], eax        ; res = subtracao
 
   popa
-  mov   eax, 0            ; retorna para o programa C com code 0
+  mov   eax, [res]            ; retorna para o programa C com o resultado
   leave
   ret
