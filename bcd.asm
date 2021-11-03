@@ -40,13 +40,18 @@ asm_main:
 
   mov   eax, outmsg1      ; printa a soma
   call  print_string
-  mov   eax, [input1]
+  mov   eax, ebx
   call  print_int
   call  print_nl
 
+  mov   eax, [input1]     ; realiza a
+  sub   eax, [input2]     ; subtracao de input1 e input2
+
+  mov   ebx, eax
+
   mov   eax, outmsg2      ; printa a subtração
   call  print_string
-  mov   eax, [input2]
+  mov   eax, ebx
   call  print_int
   call  print_nl
 
